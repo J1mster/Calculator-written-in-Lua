@@ -1,7 +1,7 @@
 
 --						[	~INFORMATION~      ] 
 local calculator = script
-local version = "version 3.1.3 POTATO"
+local version = "version 3.1.6 POTATO"
 
 local keycodes = {
 	Primary = {
@@ -16,7 +16,7 @@ local keycodes = {
 		["8"] = Enum.KeyCode.Eight,
 		["9"] = Enum.KeyCode.Nine,
 		["."] = Enum.KeyCode.Period,
-		["Add"] = Enum.KeyCode.Plus,
+		["Add"] = Enum.KeyCode.Equals,
 		["Subtract"] = Enum.KeyCode.Minus,
 		["Multiply"] = Enum.KeyCode.X,
 		["Divide"] = Enum.KeyCode.Slash,
@@ -147,7 +147,7 @@ function GetSign(solving) --Finds the correct sign based on the operation
 		return "√"
 	end
 
-	return nil 
+	return "" 
 end
 
 function WriteHistory(problemToWrite) --Writes the history based on a problem
@@ -155,7 +155,6 @@ function WriteHistory(problemToWrite) --Writes the history based on a problem
 	local nh = script["50"]:Clone()
 	nh.Name = customFindNextNumber(d.History:GetChildren()) 
 	nh.Parent = d.History
-	print(problemToWrite)
 	nh.Problem.Text = problemToWrite[1] .. " ".. problemToWrite[3] .. " ".. problemToWrite[2]
 	nh.Answer.Text = problemToWrite[4]
 	nh.Date.Text = problemToWrite[5]
@@ -273,6 +272,15 @@ end
 
 
 function clear() --clears the variables
+	variable1 = "0"
+	variable2 = "0"
+	answer = "0"
+	num = "Unselected"
+	d.Display.Text = "0"
+	curVariable = 1
+end
+
+function clearEntry() --Clears just the current entry
 	if curVariable == 1 then 
 		variable1 = "0"
 		d.Display.Text = variable1
@@ -296,15 +304,6 @@ function clear() --clears the variables
 		d.Display.Text = "0"
 		curVariable = 1
 	end
-end
-
-function clearEntry() --Clears just the current entry
-	variable1 = "0"
-	variable2 = "0"
-	answer = "0"
-	num = "Unselected"
-	d.Display.Text = "0"
-	curVariable = 1
 end
 
 function backspace() --functionality for the erase function
@@ -499,7 +498,7 @@ function ConvertFtD() --Converts a fraction to a decimal
 	end
 end
 local function checkKeyCode(keycode, name) --Checks if the keycode matches either the primary or secondary keycode from the keycode settings
-	if keycode == keycodes.Primary[name] or keycode == keycodes.Secondary[name] then 
+	if game.UserInputService:IsKeyDown(keycodes.Primary[name])  or game.UserInputService:IsKeyDown(keycodes.Secondary[name]) then 
 		return true
 	else 
 		return false
@@ -558,17 +557,20 @@ game.UserInputService.InputBegan:Connect(function(input) --Sorts the user's inpu
 		if checkKeyCode(kc, "Backspace") then 
 			backspace()
 		end
+		if checkKeyCode(kc, "Enter") then 
+			Submit()
+		end
 		if checkKeyCode(kc, "Add") then 
-			writeOperation("Add")
+			writeOperation("add")
 		end
 		if checkKeyCode(kc, "Subtract") then 
-			writeOperation("Subtract")
+			writeOperation("subtract")
 		end
 		if checkKeyCode(kc, "Multiply") then 
-			writeOperation("Multiply")
+			writeOperation("multiply")
 		end
 		if checkKeyCode(kc, "Divide") then 
-			writeOperation("Divide")
+			writeOperation("divide")
 		end
 	end
 end)
