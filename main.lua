@@ -152,7 +152,9 @@ end
 
 function WriteHistory(problemToWrite) --Writes the history based on a problem
 	table.insert(history, problemToWrite)
-	local nh = script["50"]:Clone()
+	local nh = script.Parent.historyUIExample:Clone()
+	nh.Name = "50"
+	nh.Visible = true
 	nh.Name = customFindNextNumber(d.History:GetChildren()) 
 	nh.Parent = d.History
 	nh.Problem.Text = problemToWrite[1] .. " ".. problemToWrite[3] .. " ".. problemToWrite[2]
