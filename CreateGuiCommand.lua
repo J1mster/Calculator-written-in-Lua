@@ -3,7 +3,7 @@
 -- Version: 3.2
 
 -- Instances:
-
+local sgui = Instance.new("ScreenGui", game.StarterGui)
 local Calculator = Instance.new("Frame")
 local clear = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
