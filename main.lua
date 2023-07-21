@@ -9,7 +9,7 @@
 
 --						[	~INFORMATION~      ] 
 local calculator = script
-local version = "version 3.1.6 POTATO"
+local version = "version 3.2.6 PEACH"
 
 local keycodes = {
 	Primary = {
@@ -53,7 +53,9 @@ local keycodes = {
 		["FtD"] = Enum.KeyCode.J,
 		["Backspace"] = Enum.KeyCode.Undo,
 		["Enter"] = Enum.KeyCode.KeypadEnter,
-	}
+	},
+	
+	Toggle = Enum.KeyCode.LeftControl
 }
 
 
@@ -63,7 +65,7 @@ local keycodes = {
 
 --						[	~VARIABLES~      ] 
 
-local d = script.Parent
+local d = script.Parent.Parent
 
 local variable1 = "0"
 local variable2 = "0"
@@ -88,23 +90,23 @@ function WriteVariable(writeTo, write) --Write Variable
 			variable1 = ""
 		end
 		variable1 = variable1 .. write
-		d.Display.Text = variable1
+		d.UI.Display.Text = variable1
 	end
 	if writeTo==2 then 
 		if variable2 == "0" and not (variable2 == "0.") and not (write == ".") then 
 			variable2 = ""
 		end
 		variable2 = variable2 .. write
-		d.Display.Text = variable2
+		d.UI.Display.Text = variable2
 	end
 	if writeTo==-1 then 
 		num = write
-		d.Function.Text = GetSign(write)
+		d.UI.Function.Text = GetSign(write)
 	end
 	if writeTo==3 then 
 		variable1 = "0"
 		variable1 = variable1 .. write
-		d.Display.Text = variable1
+		d.UI.Display.Text = variable1
 	end
 end
 
@@ -160,19 +162,19 @@ end
 
 function WriteHistory(problemToWrite) --Writes the history based on a problem
 	table.insert(history, problemToWrite)
-	local nh = script.Parent.historyUIExample:Clone()
+	local nh = d.Examples.historyUIExample:Clone()
 	nh.Name = "50"
 	nh.Visible = true
-	nh.Name = customFindNextNumber(d.History:GetChildren()) 
-	nh.Parent = d.History
-	nh.Problem.Text = problemToWrite[1] .. " ".. problemToWrite[3] .. " ".. problemToWrite[2]
-	nh.Answer.Text = problemToWrite[4]
-	nh.Date.Text = problemToWrite[5]
+	nh.Name = customFindNextNumber(d.UI.History:GetChildren()) 
+	nh.Parent = d.UI.History
+	nh.pos.Problem.Text = problemToWrite[1] .. " ".. problemToWrite[3] .. " ".. problemToWrite[2]
+	nh.pos.Answer.Text = problemToWrite[4]
+	nh.pos.Date.Text = problemToWrite[5]
 end
 
 function Solve(variable_1, variable_2, solving) --Solves a problem based on the variables and problem
-	
-	
+
+
 	if string.find(tostring(variable_1), "/") then 
 		local a = string.split(tostring(variable_1), "/")
 		variable_1 = a[1]/a[2]
@@ -189,8 +191,8 @@ function Solve(variable_1, variable_2, solving) --Solves a problem based on the 
 		local a = string.split(tostring(variable2), "/")
 		variable2 = a[1]/a[2]
 	end
-	
-	
+
+
 	local answer = 0
 	if variable1 == "" or variable1 == nil then 
 		variable1 = "0"
@@ -282,28 +284,44 @@ end
 
 
 function clear() --clears the variables
+	d.TweeningUIElements.Clear.Visible = true
+	d.TweeningUIElements.Clear.Size = UDim2.new(0, 1, 0, 1)
+	d.TweeningUIElements.Clear.BackgroundTransparency = 0
+	game:GetService("TweenService"):Create(d.TweeningUIElements.Clear, TweenInfo.new(0.3), {Size = UDim2.new(0, 1500, 0, 1500)}):Play()
+	wait(0.2)
 	variable1 = "0"
 	variable2 = "0"
 	answer = "0"
 	num = "Unselected"
-	d.Display.Text = "0"
+	d.UI.Display.Text = "0"
 	curVariable = 1
+	d.UI.Function.Text = ""
+	game:GetService("TweenService"):Create(d.TweeningUIElements.Clear, TweenInfo.new(0.3), {BackgroundTransparency = 1}):Play()
+	wait(0.3)
+	d.TweeningUIElements.Clear.Visible = false
+	d.TweeningUIElements.Clear.Size = UDim2.new(0, 1, 0, 1)
+	d.TweeningUIElements.Clear.BackgroundTransparency = 0
 end
 
 function clearEntry() --Clears just the current entry
+	d.TweeningUIElements.ClearEntry.Visible = true
+	d.TweeningUIElements.ClearEntry.Position = UDim2.new(1.5, 0,0.146, 0)
+	d.TweeningUIElements.ClearEntry.BackgroundTransparency = 0
+	game:GetService("TweenService"):Create(d.TweeningUIElements.ClearEntry, TweenInfo.new(0.3), {Position = UDim2.new(0.5, 0,0.146, 0)}):Play()
+	wait(0.2)
 	if curVariable == 1 then 
 		variable1 = "0"
-		d.Display.Text = variable1
+		d.UI.Display.Text = variable1
 		curVariable = 1
 	end
 	if curVariable == 2 then 
 		variable2 = "0"
-		d.Display.Text = variable2
+		d.UI.Display.Text = variable2
 		curVariable = 1
 	end
 	if curVariable == -1 then 
 		num = "Unselected"
-		d.Display.Text = variable1
+		d.UI.Display.Text = variable1
 		curVariable = -1
 	end
 	if curVariable == 3 then 
@@ -311,33 +329,52 @@ function clearEntry() --Clears just the current entry
 		variable2 = "0"
 		answer = "0"
 		num = "Unselected"
-		d.Display.Text = "0"
+		d.UI.Display.Text = "0"
 		curVariable = 1
 	end
+	wait(0.05)
+	game:GetService("TweenService"):Create(d.TweeningUIElements.ClearEntry, TweenInfo.new(0.3), {BackgroundTransparency = 1}):Play()
+	wait(0.3)
+	d.TweeningUIElements.ClearEntry.Visible = false
+	d.TweeningUIElements.ClearEntry.Position = UDim2.new(1.5, 0,0.146, 0)
+	d.TweeningUIElements.ClearEntry.BackgroundTransparency = 0
 end
 
 function backspace() --functionality for the erase function
 	if curVariable == 1 then 
 		variable1 = variable1:sub(1, variable1:len()-1)
-		d.Display.Text = variable1
+		d.UI.Display.Text = variable1
 	end
 	if curVariable == 2 then 
 		variable2 = variable2:sub(1, variable2:len()-1)
-		d.Display.Text = variable2
+		d.UI.Display.Text = variable2
 	end
 	if curVariable == -1 then 
 		num = "Unselected"
-		d.Function.Text = ""
+		d.UI.Function.Text = ""
 	end
 
-	if d.Display.Text == "" then 
-		d.Display.Text = "0"
+	if d.UI.Display.Text == "" then 
+		d.UI.Display.Text = "0"
 	end
 end
 
 function clearHistory() --Clears the history
-	for _, v in pairs(d.History:GetChildren()) do 
+	for _, v in pairs(d.UI.History:GetChildren()) do 
 		if v:IsA("Frame") then 
+			for _, x in pairs(v:GetDescendants()) do 
+				if x:IsA("TextLabel") then 
+					game:GetService("TweenService"):Create(x, TweenInfo.new(0.3), {TextTransparency = 1}):Play()
+				end
+				if x:IsA("Frame") then 
+					game:GetService("TweenService"):Create(x, TweenInfo.new(0.3), {BackgroundTransparency = 1}):Play()
+				end
+				if x:IsA("UIStroke") then 
+					game:GetService("TweenService"):Create(x, TweenInfo.new(0.3), {Transparency = 1}):Play()
+				end
+			end
+			game:GetService("TweenService"):Create(v.pos, TweenInfo.new(0.3), {Position = UDim2.new(0.75, 0,0.5, 0)}):Play()
+			wait(0.3)
 			v:Destroy()
 		end
 	end
@@ -346,6 +383,29 @@ function clearHistory() --Clears the history
 	while length > 0 do
 		table.remove(history, length)
 		length = length - 1
+	end
+end
+
+function AskToClear()
+	if not (d.UI.clear.Text == "Cancel") then 
+		d.UI.clear.Text = "Cancel"
+		d.UI.confirm.Visible = true
+		d.UI.confirm.MouseButton1Down:Connect(function()
+			if d.UI.clear.Text == "Cancel"  then 
+				d.UI.clear.Text = "Clear"
+				d.UI.confirm.Visible = false
+				clearHistory()
+			end
+		end)
+		game.UserInputService.InputBegan:Connect(function(kc)
+			if kc.KeyCode == Enum.KeyCode.Escape and d.UI.clear.Text == "Cancel" then 
+				d.UI.clear.Text = "Clear"
+				d.UI.confirm.Visible = false
+			end
+		end)
+	elseif d.UI.clear.Text == "Cancel" then 
+		d.UI.clear.Text = "Clear"
+		d.UI.confirm.Visible = false
 	end
 end
 
@@ -387,29 +447,29 @@ end
 function Negate() --Makes a number negative or positive
 	if curVariable == 1 then 
 		variable1 = variable1*-1
-		d.Display.Text = variable1
+		d.UI.Display.Text = variable1
 	end
 	if curVariable == 2 then 
 		variable2 = variable2*-1
-		d.Display.Text = variable2
+		d.UI.Display.Text = variable2
 	end
 	if curVariable == -1 then 
 		variable1 = variable1*-1
-		d.Display.Text = variable1
+		d.UI.Display.Text = variable1
 	end
 	if curVariable == 3 then 
 		variable1 = variable1*-1
-		d.Display.Text = variable1
+		d.UI.Display.Text = variable1
 	end
 end
 
 function Submit() --Basically the = sign. Just solves the problem and clears the inputs
 	local x =  Solve(variable1, variable2, num)
-	d.Display.Text = x
+	d.UI.Display.Text = x
 	answer = x
 	variable1 = x
 	variable2 = "0"
-	d.Function.Text = ""
+	d.UI.Function.Text = ""
 	num = "Unselected"
 	curVariable = 3 
 end
@@ -424,11 +484,11 @@ function squareVariable() --Squares  the variable to itself
 	WriteVariable(-1, "sq")
 
 	local x =  Solve(variable1, variable2, num)
-	d.Display.Text =x
+	d.UI.Display.Text =x
 	answer = x
 	variable1 = x
 	variable2 = "0"
-	d.Function.Text = ""
+	d.UI.Function.Text = ""
 	num = "Unselected"
 	curVariable = 3 
 end
@@ -438,11 +498,11 @@ function SquareRootVariable() --Finds the square root of the variable
 	WriteVariable(-1, "sqrt")
 
 	local x =  Solve(variable1, variable2, num)
-	d.Display.Text =x
+	d.UI.Display.Text =x
 	answer = x
 	variable1 = x
 	variable2 = "0"
-	d.Function.Text = ""
+	d.UI.Function.Text = ""
 	num = "Unselected"
 	curVariable = 3 
 end
@@ -451,22 +511,22 @@ function writeVariablePi()	--Sets the current variable to Pi
 	local write = 9
 	if curVariable == 1 then 
 		variable1 = math.pi
-		d.Display.Text = variable1
+		d.UI.Display.Text = variable1
 	end
 	if curVariable == 2 then 
 		variable2 = math.pi
-		d.Display.Text = variable2
+		d.UI.Display.Text = variable2
 	end
 	if curVariable == -1 then 
 		variable2 = math.pi
-		d.Display.Text = variable2
+		d.UI.Display.Text = variable2
 	end
 	if curVariable ==3 then 
 		curVariable = 1 
 		variable1 = ""
 		variable2 = ""
 		variable1 = math.pi
-		d.Display.Text = variable1
+		d.UI.Display.Text = variable1
 	end
 end
 
@@ -480,7 +540,7 @@ function ConvertFtD() --Converts a fraction to a decimal
 			variable1 = a[1]/a[2]
 		end
 
-		d.Display.Text = variable1
+		d.UI.Display.Text = variable1
 	end
 	if curVariable == 2 then 
 		if not tostring(variable2):find("/") then 
@@ -491,7 +551,7 @@ function ConvertFtD() --Converts a fraction to a decimal
 			variable2 = a[1]/a[2]
 		end
 
-		d.Display.Text = variable2
+		d.UI.Display.Text = variable2
 	end
 
 
@@ -504,7 +564,7 @@ function ConvertFtD() --Converts a fraction to a decimal
 			variable1 = a[1]/a[2]
 		end
 
-		d.Display.Text = variable1
+		d.UI.Display.Text = variable1
 	end
 end
 local function checkKeyCode(keycode, name) --Checks if the keycode matches either the primary or secondary keycode from the keycode settings
@@ -521,10 +581,10 @@ end
 
 game.UserInputService.InputBegan:Connect(function(input) --Sorts the user's inputs
 	if d.Focused.Value == true then 
-		
+
 		local kc = input.KeyCode
-		
-		
+
+
 		if checkKeyCode(kc, "0") then 
 			writeNumber(0)
 		end
@@ -586,79 +646,104 @@ game.UserInputService.InputBegan:Connect(function(input) --Sorts the user's inpu
 end)
 
 
+
 --						[	~USER CLICK FUNCTIONALITY ~      ] 
-d.clear.MouseButton1Down:Connect(function()
-	clearHistory()
+
+
+d.UI.clear.MouseButton1Down:Connect(function()
+	if game.UserInputService:IsKeyDown(keycodes.Toggle) then 
+		clearHistory()
+	else 
+		AskToClear()
+	end
 end)
-d.Buttons.C.MouseButton1Down:Connect(function()
+d.UI.Buttons.C.MouseButton1Down:Connect(function()
 	clear()
 end)
-d.Buttons.CE.MouseButton1Down:Connect(function()
+d.UI.Buttons.CE.MouseButton1Down:Connect(function()
 	clearEntry()
 end)
-d.Buttons.back.MouseButton1Down:Connect(function()
+d.UI.Buttons.back.MouseButton1Down:Connect(function()
 	backspace()
 end)
-d.Buttons["0"].MouseButton1Down:Connect(function()
+d.UI.Buttons["0"].MouseButton1Down:Connect(function()
 	writeNumber(0)
 end)
-d.Buttons["1"].MouseButton1Down:Connect(function()
+d.UI.Buttons["1"].MouseButton1Down:Connect(function()
 	writeNumber(1)
 end)
-d.Buttons["2"].MouseButton1Down:Connect(function()
+d.UI.Buttons["2"].MouseButton1Down:Connect(function()
 	writeNumber(2)
 end)
-d.Buttons["3"].MouseButton1Down:Connect(function()
+d.UI.Buttons["3"].MouseButton1Down:Connect(function()
 	writeNumber(3)
 end)
-d.Buttons["4"].MouseButton1Down:Connect(function()
+d.UI.Buttons["4"].MouseButton1Down:Connect(function()
 	writeNumber(4)
 end)
-d.Buttons["5"].MouseButton1Down:Connect(function()
+d.UI.Buttons["5"].MouseButton1Down:Connect(function()
 	writeNumber(5)
 end)
-d.Buttons["6"].MouseButton1Down:Connect(function()
+d.UI.Buttons["6"].MouseButton1Down:Connect(function()
 	writeNumber(6)
 end)
-d.Buttons["7"].MouseButton1Down:Connect(function()
+d.UI.Buttons["7"].MouseButton1Down:Connect(function()
 	writeNumber(7)
 end)
-d.Buttons["8"].MouseButton1Down:Connect(function()
+d.UI.Buttons["8"].MouseButton1Down:Connect(function()
 	writeNumber(8)
 end)
-d.Buttons["9"].MouseButton1Down:Connect(function()
+d.UI.Buttons["9"].MouseButton1Down:Connect(function()
 	writeNumber(9)
 end)
-d.Buttons["decimal"].MouseButton1Down:Connect(function()
+d.UI.Buttons["decimal"].MouseButton1Down:Connect(function()
 	writeDecimal()
 end)
-d.Buttons["negate"].MouseButton1Down:Connect(function()
+d.UI.Buttons["negate"].MouseButton1Down:Connect(function()
 	Negate()
 end)
-d.Buttons["equals"].MouseButton1Down:Connect(function()
+d.UI.Buttons["equals"].MouseButton1Down:Connect(function()
 	Submit()
 end)
-d.Buttons["add"].MouseButton1Down:Connect(function()
+d.UI.Buttons["add"].MouseButton1Down:Connect(function()
 	writeOperation("add")
 end)
-d.Buttons["subtract"].MouseButton1Down:Connect(function()
+d.UI.Buttons["subtract"].MouseButton1Down:Connect(function()
 	writeOperation("subtract")
 end)
-d.Buttons["multiply"].MouseButton1Down:Connect(function()
+d.UI.Buttons["multiply"].MouseButton1Down:Connect(function()
 	writeOperation("multiply")
 end)
-d.Buttons["divide"].MouseButton1Down:Connect(function()
+d.UI.Buttons["divide"].MouseButton1Down:Connect(function()
 	writeOperation("divide")
 end)
-d.Buttons["squared"].MouseButton1Down:Connect(function()
+d.UI.Buttons["squared"].MouseButton1Down:Connect(function()
 	squareVariable()
 end)
-d.Buttons["squareroot"].MouseButton1Down:Connect(function()
+d.UI.Buttons["squareroot"].MouseButton1Down:Connect(function()
 	SquareRootVariable()
 end)
-d.Buttons["pi"].MouseButton1Down:Connect(function()
+d.UI.Buttons["pi"].MouseButton1Down:Connect(function()
 	writeVariablePi()
 end)
-d.Buttons["convert"].MouseButton1Down:Connect(function()
+d.UI.Buttons["convert"].MouseButton1Down:Connect(function()
 	ConvertFtD()
 end)
+
+
+--						[	~USER HOVER FUNCTIONALITY ~      ] 
+
+local hovering=nil
+for _, v in pairs(d:GetDescendants()) do 
+	if v:IsA("TextButton") and v.FontFace.Bold == false  then 
+		v.MouseEnter:Connect(function()
+			v.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+			 hovering =true
+			
+		end)
+		v.MouseLeave:Connect(function()
+			 hovering = false
+			v.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+		end)
+	end
+end
