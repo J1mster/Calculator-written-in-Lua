@@ -11,194 +11,145 @@
 -- Version: 3.2
 
 -- Instances:
-local sgui = Instance.new("ScreenGui", game.StarterGui)
+local ScreenGui = Instance.new("ScreenGui")
 local Calculator = Instance.new("Frame")
-local clear = Instance.new("TextButton")
+local Scripts = Instance.new("Folder")
+local UI = Instance.new("Folder")
+local BackgroundColor = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
+local Buttons = Instance.new("Frame")
+local _0 = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
 local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+local _1 = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
+local _2 = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
+local _3 = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local UITextSizeConstraint_4 = Instance.new("UITextSizeConstraint")
+local _4 = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local UITextSizeConstraint_5 = Instance.new("UITextSizeConstraint")
+local _5 = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
+local UITextSizeConstraint_6 = Instance.new("UITextSizeConstraint")
+local _6 = Instance.new("TextButton")
+local UICorner_8 = Instance.new("UICorner")
+local UITextSizeConstraint_7 = Instance.new("UITextSizeConstraint")
+local _7 = Instance.new("TextButton")
+local UICorner_9 = Instance.new("UICorner")
+local UITextSizeConstraint_8 = Instance.new("UITextSizeConstraint")
+local _8 = Instance.new("TextButton")
+local UICorner_10 = Instance.new("UICorner")
+local UITextSizeConstraint_9 = Instance.new("UITextSizeConstraint")
+local _9 = Instance.new("TextButton")
+local UICorner_11 = Instance.new("UICorner")
+local UITextSizeConstraint_10 = Instance.new("UITextSizeConstraint")
+local C = Instance.new("TextButton")
+local UICorner_12 = Instance.new("UICorner")
+local UITextSizeConstraint_11 = Instance.new("UITextSizeConstraint")
+local CE = Instance.new("TextButton")
+local UICorner_13 = Instance.new("UICorner")
+local UITextSizeConstraint_12 = Instance.new("UITextSizeConstraint")
+local add = Instance.new("TextButton")
+local UICorner_14 = Instance.new("UICorner")
+local UITextSizeConstraint_13 = Instance.new("UITextSizeConstraint")
+local back = Instance.new("TextButton")
+local UICorner_15 = Instance.new("UICorner")
+local UITextSizeConstraint_14 = Instance.new("UITextSizeConstraint")
+local divide = Instance.new("TextButton")
+local UICorner_16 = Instance.new("UICorner")
+local UITextSizeConstraint_15 = Instance.new("UITextSizeConstraint")
+local pi = Instance.new("TextButton")
+local UICorner_17 = Instance.new("UICorner")
+local UITextSizeConstraint_16 = Instance.new("UITextSizeConstraint")
+local equals = Instance.new("TextButton")
+local UICorner_18 = Instance.new("UICorner")
+local UITextSizeConstraint_17 = Instance.new("UITextSizeConstraint")
+local multiply = Instance.new("TextButton")
+local UICorner_19 = Instance.new("UICorner")
+local UITextSizeConstraint_18 = Instance.new("UITextSizeConstraint")
+local negate = Instance.new("TextButton")
+local UICorner_20 = Instance.new("UICorner")
+local UITextSizeConstraint_19 = Instance.new("UITextSizeConstraint")
+local convert = Instance.new("TextButton")
+local UICorner_21 = Instance.new("UICorner")
+local UITextSizeConstraint_20 = Instance.new("UITextSizeConstraint")
+local decimal = Instance.new("TextButton")
+local UICorner_22 = Instance.new("UICorner")
+local UITextSizeConstraint_21 = Instance.new("UITextSizeConstraint")
+local squared = Instance.new("TextButton")
+local UICorner_23 = Instance.new("UICorner")
+local UITextSizeConstraint_22 = Instance.new("UITextSizeConstraint")
+local squareroot = Instance.new("TextButton")
+local UICorner_24 = Instance.new("UICorner")
+local UITextSizeConstraint_23 = Instance.new("UITextSizeConstraint")
+local subtract = Instance.new("TextButton")
+local UICorner_25 = Instance.new("UICorner")
+local UITextSizeConstraint_24 = Instance.new("UITextSizeConstraint")
 local History = Instance.new("ScrollingFrame")
 local UIListLayout = Instance.new("UIListLayout")
 local UIPadding = Instance.new("UIPadding")
-local Function = Instance.new("TextLabel")
-local UICorner_2 = Instance.new("UICorner")
-local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
-local BackgroundColor = Instance.new("Frame")
-local UICorner_3 = Instance.new("UICorner")
-local Buttons = Instance.new("Frame")
-local _0 = Instance.new("TextButton")
-local UICorner_4 = Instance.new("UICorner")
-local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
-local _1 = Instance.new("TextButton")
-local UICorner_5 = Instance.new("UICorner")
-local UITextSizeConstraint_4 = Instance.new("UITextSizeConstraint")
-local _2 = Instance.new("TextButton")
-local UICorner_6 = Instance.new("UICorner")
-local UITextSizeConstraint_5 = Instance.new("UITextSizeConstraint")
-local _3 = Instance.new("TextButton")
-local UICorner_7 = Instance.new("UICorner")
-local UITextSizeConstraint_6 = Instance.new("UITextSizeConstraint")
-local _4 = Instance.new("TextButton")
-local UICorner_8 = Instance.new("UICorner")
-local UITextSizeConstraint_7 = Instance.new("UITextSizeConstraint")
-local _5 = Instance.new("TextButton")
-local UICorner_9 = Instance.new("UICorner")
-local UITextSizeConstraint_8 = Instance.new("UITextSizeConstraint")
-local _6 = Instance.new("TextButton")
-local UICorner_10 = Instance.new("UICorner")
-local UITextSizeConstraint_9 = Instance.new("UITextSizeConstraint")
-local _7 = Instance.new("TextButton")
-local UICorner_11 = Instance.new("UICorner")
-local UITextSizeConstraint_10 = Instance.new("UITextSizeConstraint")
-local _8 = Instance.new("TextButton")
-local UICorner_12 = Instance.new("UICorner")
-local UITextSizeConstraint_11 = Instance.new("UITextSizeConstraint")
-local _9 = Instance.new("TextButton")
-local UICorner_13 = Instance.new("UICorner")
-local UITextSizeConstraint_12 = Instance.new("UITextSizeConstraint")
-local C = Instance.new("TextButton")
-local UICorner_14 = Instance.new("UICorner")
-local UITextSizeConstraint_13 = Instance.new("UITextSizeConstraint")
-local CE = Instance.new("TextButton")
-local UICorner_15 = Instance.new("UICorner")
-local UITextSizeConstraint_14 = Instance.new("UITextSizeConstraint")
-local add = Instance.new("TextButton")
-local UICorner_16 = Instance.new("UICorner")
-local UITextSizeConstraint_15 = Instance.new("UITextSizeConstraint")
-local back = Instance.new("TextButton")
-local UICorner_17 = Instance.new("UICorner")
-local UITextSizeConstraint_16 = Instance.new("UITextSizeConstraint")
-local divide = Instance.new("TextButton")
-local UICorner_18 = Instance.new("UICorner")
-local UITextSizeConstraint_17 = Instance.new("UITextSizeConstraint")
-local pi = Instance.new("TextButton")
-local UICorner_19 = Instance.new("UICorner")
-local UITextSizeConstraint_18 = Instance.new("UITextSizeConstraint")
-local equals = Instance.new("TextButton")
-local UICorner_20 = Instance.new("UICorner")
-local UITextSizeConstraint_19 = Instance.new("UITextSizeConstraint")
-local multiply = Instance.new("TextButton")
-local UICorner_21 = Instance.new("UICorner")
-local UITextSizeConstraint_20 = Instance.new("UITextSizeConstraint")
-local negate = Instance.new("TextButton")
-local UICorner_22 = Instance.new("UICorner")
-local UITextSizeConstraint_21 = Instance.new("UITextSizeConstraint")
-local convert = Instance.new("TextButton")
-local UICorner_23 = Instance.new("UICorner")
-local UITextSizeConstraint_22 = Instance.new("UITextSizeConstraint")
-local decimal = Instance.new("TextButton")
-local UICorner_24 = Instance.new("UICorner")
-local UITextSizeConstraint_23 = Instance.new("UITextSizeConstraint")
-local squared = Instance.new("TextButton")
-local UICorner_25 = Instance.new("UICorner")
-local UITextSizeConstraint_24 = Instance.new("UITextSizeConstraint")
-local squareroot = Instance.new("TextButton")
+local clear = Instance.new("TextButton")
 local UICorner_26 = Instance.new("UICorner")
 local UITextSizeConstraint_25 = Instance.new("UITextSizeConstraint")
-local subtract = Instance.new("TextButton")
-local UICorner_27 = Instance.new("UICorner")
+local Calculator_2 = Instance.new("TextLabel")
 local UITextSizeConstraint_26 = Instance.new("UITextSizeConstraint")
 local Display = Instance.new("TextLabel")
 local UITextSizeConstraint_27 = Instance.new("UITextSizeConstraint")
-local Calculator_2 = Instance.new("TextLabel")
+local Function = Instance.new("TextLabel")
+local UICorner_27 = Instance.new("UICorner")
 local UITextSizeConstraint_28 = Instance.new("UITextSizeConstraint")
-local historyUIExample = Instance.new("Frame")
-local Problem = Instance.new("TextLabel")
+local confirm = Instance.new("TextButton")
 local UICorner_28 = Instance.new("UICorner")
 local UITextSizeConstraint_29 = Instance.new("UITextSizeConstraint")
-local Answer = Instance.new("TextLabel")
+local TextLabel = Instance.new("TextLabel")
+local Examples = Instance.new("Folder")
+local historyUIExample = Instance.new("Frame")
+local pos = Instance.new("Frame")
+local Underline = Instance.new("Frame")
 local UICorner_29 = Instance.new("UICorner")
+local Answer = Instance.new("TextLabel")
+local UICorner_30 = Instance.new("UICorner")
 local UITextSizeConstraint_30 = Instance.new("UITextSizeConstraint")
 local Date = Instance.new("TextLabel")
-local UICorner_30 = Instance.new("UICorner")
-local UITextSizeConstraint_31 = Instance.new("UITextSizeConstraint")
-local Underline = Instance.new("Frame")
 local UICorner_31 = Instance.new("UICorner")
+local UITextSizeConstraint_31 = Instance.new("UITextSizeConstraint")
+local Problem = Instance.new("TextLabel")
+local UICorner_32 = Instance.new("UICorner")
+local UITextSizeConstraint_32 = Instance.new("UITextSizeConstraint")
+local TweeningUIElements = Instance.new("Folder")
+local Clear = Instance.new("Frame")
+local UICorner_33 = Instance.new("UICorner")
+local ClearEntry = Instance.new("Frame")
 
 --Properties:
 
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
 Calculator.Name = "Calculator"
-Calculator.Parent = game.StarterGui.ScreenGui
+Calculator.Parent = ScreenGui
 Calculator.AnchorPoint = Vector2.new(0.5, 0.5)
 Calculator.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Calculator.BackgroundTransparency = 1.000
 Calculator.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Calculator.BorderSizePixel = 0
+Calculator.ClipsDescendants = true
 Calculator.Position = UDim2.new(0.499478668, 0, 0.498996466, 0)
 Calculator.Size = UDim2.new(0.209489033, 0, 0.693120301, 0)
 
-clear.Name = "clear"
-clear.Parent = Calculator
-clear.AnchorPoint = Vector2.new(0.5, 0.5)
-clear.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-clear.BackgroundTransparency = 0.500
-clear.BorderColor3 = Color3.fromRGB(0, 0, 0)
-clear.BorderSizePixel = 0
-clear.Position = UDim2.new(0.86139524, 0, 0.144491732, 0)
-clear.Size = UDim2.new(0.238636553, 0, 0.0393258929, 0)
-clear.ZIndex = 2
-clear.FontFace = Font.new("rbxasset://fonts/families/Roboto.json", Enum.FontWeight.Regular, Enum.FontStyle.Italic)
-clear.Text = "clear"
-clear.TextColor3 = Color3.fromRGB(255, 255, 255)
-clear.TextScaled = true
-clear.TextSize = 14.000
-clear.TextWrapped = true
+Scripts.Name = "Scripts"
+Scripts.Parent = Calculator
 
-UICorner.Parent = clear
-
-UITextSizeConstraint.Parent = clear
-UITextSizeConstraint.MaxTextSize = 13
-
-History.Name = "History"
-History.Parent = Calculator
-History.Active = true
-History.AnchorPoint = Vector2.new(0.5, 0.5)
-History.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-History.BackgroundTransparency = 0.500
-History.BorderColor3 = Color3.fromRGB(0, 0, 0)
-History.BorderSizePixel = 0
-History.Position = UDim2.new(0.49999997, 0, 0.264357537, 0)
-History.Size = UDim2.new(0.99999994, 0, 0.155153632, 0)
-History.ZIndex = 2
-History.BottomImage = "rbxassetid://5168609593"
-History.CanvasSize = UDim2.new(0, 0, 0.200000003, 0)
-History.MidImage = "rbxassetid://5168609593"
-History.ScrollBarThickness = 6
-History.TopImage = "rbxassetid://5168609593"
-
-UIListLayout.Parent = History
-UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-UIListLayout.Padding = UDim.new(0, 11)
-
-UIPadding.Parent = History
-UIPadding.PaddingBottom = UDim.new(0, 15)
-UIPadding.PaddingTop = UDim.new(0, 15)
-
-Function.Name = "Function"
-Function.Parent = Calculator
-Function.AnchorPoint = Vector2.new(0.5, 0.5)
-Function.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Function.BackgroundTransparency = 1.000
-Function.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Function.BorderSizePixel = 0
-Function.Position = UDim2.new(0.624439895, 0, 0.131732896, 0)
-Function.Size = UDim2.new(0.0741662085, 0, 0.0530274548, 0)
-Function.ZIndex = 2
-Function.FontFace = Font.new("rbxasset://fonts/families/Roboto.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-Function.Text = ""
-Function.TextColor3 = Color3.fromRGB(255, 255, 255)
-Function.TextScaled = true
-Function.TextSize = 14.000
-Function.TextTransparency = 0.240
-Function.TextWrapped = true
-
-UICorner_2.Parent = Function
-
-UITextSizeConstraint_2.Parent = Function
-UITextSizeConstraint_2.MaxTextSize = 30
-UITextSizeConstraint_2.MinTextSize = 15
+UI.Name = "UI"
+UI.Parent = Calculator
 
 BackgroundColor.Name = "BackgroundColor"
-BackgroundColor.Parent = Calculator
+BackgroundColor.Parent = UI
 BackgroundColor.AnchorPoint = Vector2.new(0.5, 0.5)
 BackgroundColor.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
 BackgroundColor.BackgroundTransparency = 0.200
@@ -207,10 +158,10 @@ BackgroundColor.BorderSizePixel = 0
 BackgroundColor.Position = UDim2.new(0.5, 0, 0.5, 0)
 BackgroundColor.Size = UDim2.new(1, 0, 1, 0)
 
-UICorner_3.Parent = BackgroundColor
+UICorner.Parent = BackgroundColor
 
 Buttons.Name = "Buttons"
-Buttons.Parent = Calculator
+Buttons.Parent = UI
 Buttons.AnchorPoint = Vector2.new(0.5, 0.5)
 Buttons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Buttons.BackgroundTransparency = 1.000
@@ -236,11 +187,11 @@ _0.TextScaled = true
 _0.TextSize = 14.000
 _0.TextWrapped = true
 
-UICorner_4.Parent = _0
+UICorner_2.Parent = _0
 
-UITextSizeConstraint_3.Parent = _0
-UITextSizeConstraint_3.MaxTextSize = 30
-UITextSizeConstraint_3.MinTextSize = 15
+UITextSizeConstraint.Parent = _0
+UITextSizeConstraint.MaxTextSize = 30
+UITextSizeConstraint.MinTextSize = 15
 
 _1.Name = "1"
 _1.Parent = Buttons
@@ -252,6 +203,7 @@ _1.BorderSizePixel = 0
 _1.Position = UDim2.new(0.38223809, 0, 0.829315305, 0)
 _1.Size = UDim2.new(0.224118143, 0, 0.0963938758, 0)
 _1.ZIndex = 2
+_1.ZIndex = 2
 _1.FontFace = Font.new("rbxasset://fonts/families/Roboto.json", Enum.FontWeight.Bold, Enum.FontStyle.Italic)
 _1.Text = "1"
 _1.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -259,11 +211,11 @@ _1.TextScaled = true
 _1.TextSize = 14.000
 _1.TextWrapped = true
 
-UICorner_5.Parent = _1
+UICorner_3.Parent = _1
 
-UITextSizeConstraint_4.Parent = _1
-UITextSizeConstraint_4.MaxTextSize = 30
-UITextSizeConstraint_4.MinTextSize = 15
+UITextSizeConstraint_2.Parent = _1
+UITextSizeConstraint_2.MaxTextSize = 30
+UITextSizeConstraint_2.MinTextSize = 15
 
 _2.Name = "2"
 _2.Parent = Buttons
@@ -282,11 +234,11 @@ _2.TextScaled = true
 _2.TextSize = 14.000
 _2.TextWrapped = true
 
-UICorner_6.Parent = _2
+UICorner_4.Parent = _2
 
-UITextSizeConstraint_5.Parent = _2
-UITextSizeConstraint_5.MaxTextSize = 30
-UITextSizeConstraint_5.MinTextSize = 15
+UITextSizeConstraint_3.Parent = _2
+UITextSizeConstraint_3.MaxTextSize = 30
+UITextSizeConstraint_3.MinTextSize = 15
 
 _3.Name = "3"
 _3.Parent = Buttons
@@ -305,11 +257,11 @@ _3.TextScaled = true
 _3.TextSize = 14.000
 _3.TextWrapped = true
 
-UICorner_7.Parent = _3
+UICorner_5.Parent = _3
 
-UITextSizeConstraint_6.Parent = _3
-UITextSizeConstraint_6.MaxTextSize = 30
-UITextSizeConstraint_6.MinTextSize = 15
+UITextSizeConstraint_4.Parent = _3
+UITextSizeConstraint_4.MaxTextSize = 30
+UITextSizeConstraint_4.MinTextSize = 15
 
 _4.Name = "4"
 _4.Parent = Buttons
@@ -328,11 +280,11 @@ _4.TextScaled = true
 _4.TextSize = 14.000
 _4.TextWrapped = true
 
-UICorner_8.Parent = _4
+UICorner_6.Parent = _4
 
-UITextSizeConstraint_7.Parent = _4
-UITextSizeConstraint_7.MaxTextSize = 30
-UITextSizeConstraint_7.MinTextSize = 15
+UITextSizeConstraint_5.Parent = _4
+UITextSizeConstraint_5.MaxTextSize = 30
+UITextSizeConstraint_5.MinTextSize = 15
 
 _5.Name = "5"
 _5.Parent = Buttons
@@ -351,11 +303,11 @@ _5.TextScaled = true
 _5.TextSize = 14.000
 _5.TextWrapped = true
 
-UICorner_9.Parent = _5
+UICorner_7.Parent = _5
 
-UITextSizeConstraint_8.Parent = _5
-UITextSizeConstraint_8.MaxTextSize = 30
-UITextSizeConstraint_8.MinTextSize = 15
+UITextSizeConstraint_6.Parent = _5
+UITextSizeConstraint_6.MaxTextSize = 30
+UITextSizeConstraint_6.MinTextSize = 15
 
 _6.Name = "6"
 _6.Parent = Buttons
@@ -374,11 +326,11 @@ _6.TextScaled = true
 _6.TextSize = 14.000
 _6.TextWrapped = true
 
-UICorner_10.Parent = _6
+UICorner_8.Parent = _6
 
-UITextSizeConstraint_9.Parent = _6
-UITextSizeConstraint_9.MaxTextSize = 30
-UITextSizeConstraint_9.MinTextSize = 15
+UITextSizeConstraint_7.Parent = _6
+UITextSizeConstraint_7.MaxTextSize = 30
+UITextSizeConstraint_7.MinTextSize = 15
 
 _7.Name = "7"
 _7.Parent = Buttons
@@ -397,11 +349,11 @@ _7.TextScaled = true
 _7.TextSize = 14.000
 _7.TextWrapped = true
 
-UICorner_11.Parent = _7
+UICorner_9.Parent = _7
 
-UITextSizeConstraint_10.Parent = _7
-UITextSizeConstraint_10.MaxTextSize = 30
-UITextSizeConstraint_10.MinTextSize = 15
+UITextSizeConstraint_8.Parent = _7
+UITextSizeConstraint_8.MaxTextSize = 30
+UITextSizeConstraint_8.MinTextSize = 15
 
 _8.Name = "8"
 _8.Parent = Buttons
@@ -420,11 +372,11 @@ _8.TextScaled = true
 _8.TextSize = 14.000
 _8.TextWrapped = true
 
-UICorner_12.Parent = _8
+UICorner_10.Parent = _8
 
-UITextSizeConstraint_11.Parent = _8
-UITextSizeConstraint_11.MaxTextSize = 30
-UITextSizeConstraint_11.MinTextSize = 15
+UITextSizeConstraint_9.Parent = _8
+UITextSizeConstraint_9.MaxTextSize = 30
+UITextSizeConstraint_9.MinTextSize = 15
 
 _9.Name = "9"
 _9.Parent = Buttons
@@ -443,11 +395,11 @@ _9.TextScaled = true
 _9.TextSize = 14.000
 _9.TextWrapped = true
 
-UICorner_13.Parent = _9
+UICorner_11.Parent = _9
 
-UITextSizeConstraint_12.Parent = _9
-UITextSizeConstraint_12.MaxTextSize = 30
-UITextSizeConstraint_12.MinTextSize = 15
+UITextSizeConstraint_10.Parent = _9
+UITextSizeConstraint_10.MaxTextSize = 30
+UITextSizeConstraint_10.MinTextSize = 15
 
 C.Name = "C"
 C.Parent = Buttons
@@ -466,11 +418,11 @@ C.TextScaled = true
 C.TextSize = 14.000
 C.TextWrapped = true
 
-UICorner_14.Parent = C
+UICorner_12.Parent = C
 
-UITextSizeConstraint_13.Parent = C
-UITextSizeConstraint_13.MaxTextSize = 30
-UITextSizeConstraint_13.MinTextSize = 15
+UITextSizeConstraint_11.Parent = C
+UITextSizeConstraint_11.MaxTextSize = 30
+UITextSizeConstraint_11.MinTextSize = 15
 
 CE.Name = "CE"
 CE.Parent = Buttons
@@ -489,11 +441,11 @@ CE.TextScaled = true
 CE.TextSize = 14.000
 CE.TextWrapped = true
 
-UICorner_15.Parent = CE
+UICorner_13.Parent = CE
 
-UITextSizeConstraint_14.Parent = CE
-UITextSizeConstraint_14.MaxTextSize = 30
-UITextSizeConstraint_14.MinTextSize = 15
+UITextSizeConstraint_12.Parent = CE
+UITextSizeConstraint_12.MaxTextSize = 30
+UITextSizeConstraint_12.MinTextSize = 15
 
 add.Name = "add"
 add.Parent = Buttons
@@ -512,11 +464,11 @@ add.TextScaled = true
 add.TextSize = 14.000
 add.TextWrapped = true
 
-UICorner_16.Parent = add
+UICorner_14.Parent = add
 
-UITextSizeConstraint_15.Parent = add
-UITextSizeConstraint_15.MaxTextSize = 30
-UITextSizeConstraint_15.MinTextSize = 15
+UITextSizeConstraint_13.Parent = add
+UITextSizeConstraint_13.MaxTextSize = 30
+UITextSizeConstraint_13.MinTextSize = 15
 
 back.Name = "back"
 back.Parent = Buttons
@@ -535,11 +487,11 @@ back.TextScaled = true
 back.TextSize = 14.000
 back.TextWrapped = true
 
-UICorner_17.Parent = back
+UICorner_15.Parent = back
 
-UITextSizeConstraint_16.Parent = back
-UITextSizeConstraint_16.MaxTextSize = 30
-UITextSizeConstraint_16.MinTextSize = 15
+UITextSizeConstraint_14.Parent = back
+UITextSizeConstraint_14.MaxTextSize = 30
+UITextSizeConstraint_14.MinTextSize = 15
 
 divide.Name = "divide"
 divide.Parent = Buttons
@@ -558,11 +510,11 @@ divide.TextScaled = true
 divide.TextSize = 14.000
 divide.TextWrapped = true
 
-UICorner_18.Parent = divide
+UICorner_16.Parent = divide
 
-UITextSizeConstraint_17.Parent = divide
-UITextSizeConstraint_17.MaxTextSize = 30
-UITextSizeConstraint_17.MinTextSize = 15
+UITextSizeConstraint_15.Parent = divide
+UITextSizeConstraint_15.MaxTextSize = 30
+UITextSizeConstraint_15.MinTextSize = 15
 
 pi.Name = "pi"
 pi.Parent = Buttons
@@ -581,11 +533,11 @@ pi.TextScaled = true
 pi.TextSize = 14.000
 pi.TextWrapped = true
 
-UICorner_19.Parent = pi
+UICorner_17.Parent = pi
 
-UITextSizeConstraint_18.Parent = pi
-UITextSizeConstraint_18.MaxTextSize = 30
-UITextSizeConstraint_18.MinTextSize = 15
+UITextSizeConstraint_16.Parent = pi
+UITextSizeConstraint_16.MaxTextSize = 30
+UITextSizeConstraint_16.MinTextSize = 15
 
 equals.Name = "equals"
 equals.Parent = Buttons
@@ -604,11 +556,11 @@ equals.TextScaled = true
 equals.TextSize = 14.000
 equals.TextWrapped = true
 
-UICorner_20.Parent = equals
+UICorner_18.Parent = equals
 
-UITextSizeConstraint_19.Parent = equals
-UITextSizeConstraint_19.MaxTextSize = 30
-UITextSizeConstraint_19.MinTextSize = 15
+UITextSizeConstraint_17.Parent = equals
+UITextSizeConstraint_17.MaxTextSize = 30
+UITextSizeConstraint_17.MinTextSize = 15
 
 multiply.Name = "multiply"
 multiply.Parent = Buttons
@@ -627,11 +579,11 @@ multiply.TextScaled = true
 multiply.TextSize = 14.000
 multiply.TextWrapped = true
 
-UICorner_21.Parent = multiply
+UICorner_19.Parent = multiply
 
-UITextSizeConstraint_20.Parent = multiply
-UITextSizeConstraint_20.MaxTextSize = 30
-UITextSizeConstraint_20.MinTextSize = 15
+UITextSizeConstraint_18.Parent = multiply
+UITextSizeConstraint_18.MaxTextSize = 30
+UITextSizeConstraint_18.MinTextSize = 15
 
 negate.Name = "negate"
 negate.Parent = Buttons
@@ -650,11 +602,11 @@ negate.TextScaled = true
 negate.TextSize = 14.000
 negate.TextWrapped = true
 
-UICorner_22.Parent = negate
+UICorner_20.Parent = negate
 
-UITextSizeConstraint_21.Parent = negate
-UITextSizeConstraint_21.MaxTextSize = 30
-UITextSizeConstraint_21.MinTextSize = 15
+UITextSizeConstraint_19.Parent = negate
+UITextSizeConstraint_19.MaxTextSize = 30
+UITextSizeConstraint_19.MinTextSize = 15
 
 convert.Name = "convert"
 convert.Parent = Buttons
@@ -673,11 +625,11 @@ convert.TextScaled = true
 convert.TextSize = 14.000
 convert.TextWrapped = true
 
-UICorner_23.Parent = convert
+UICorner_21.Parent = convert
 
-UITextSizeConstraint_22.Parent = convert
-UITextSizeConstraint_22.MaxTextSize = 30
-UITextSizeConstraint_22.MinTextSize = 15
+UITextSizeConstraint_20.Parent = convert
+UITextSizeConstraint_20.MaxTextSize = 30
+UITextSizeConstraint_20.MinTextSize = 15
 
 decimal.Name = "decimal"
 decimal.Parent = Buttons
@@ -696,11 +648,11 @@ decimal.TextScaled = true
 decimal.TextSize = 14.000
 decimal.TextWrapped = true
 
-UICorner_24.Parent = decimal
+UICorner_22.Parent = decimal
 
-UITextSizeConstraint_23.Parent = decimal
-UITextSizeConstraint_23.MaxTextSize = 30
-UITextSizeConstraint_23.MinTextSize = 15
+UITextSizeConstraint_21.Parent = decimal
+UITextSizeConstraint_21.MaxTextSize = 30
+UITextSizeConstraint_21.MinTextSize = 15
 
 squared.Name = "squared"
 squared.Parent = Buttons
@@ -719,11 +671,11 @@ squared.TextScaled = true
 squared.TextSize = 14.000
 squared.TextWrapped = true
 
-UICorner_25.Parent = squared
+UICorner_23.Parent = squared
 
-UITextSizeConstraint_24.Parent = squared
-UITextSizeConstraint_24.MaxTextSize = 30
-UITextSizeConstraint_24.MinTextSize = 15
+UITextSizeConstraint_22.Parent = squared
+UITextSizeConstraint_22.MaxTextSize = 30
+UITextSizeConstraint_22.MinTextSize = 15
 
 squareroot.Name = "squareroot"
 squareroot.Parent = Buttons
@@ -742,11 +694,11 @@ squareroot.TextScaled = true
 squareroot.TextSize = 14.000
 squareroot.TextWrapped = true
 
-UICorner_26.Parent = squareroot
+UICorner_24.Parent = squareroot
 
-UITextSizeConstraint_25.Parent = squareroot
-UITextSizeConstraint_25.MaxTextSize = 30
-UITextSizeConstraint_25.MinTextSize = 15
+UITextSizeConstraint_23.Parent = squareroot
+UITextSizeConstraint_23.MaxTextSize = 30
+UITextSizeConstraint_23.MinTextSize = 15
 
 subtract.Name = "subtract"
 subtract.Parent = Buttons
@@ -765,19 +717,89 @@ subtract.TextScaled = true
 subtract.TextSize = 14.000
 subtract.TextWrapped = true
 
-UICorner_27.Parent = subtract
+UICorner_25.Parent = subtract
 
-UITextSizeConstraint_26.Parent = subtract
+UITextSizeConstraint_24.Parent = subtract
+UITextSizeConstraint_24.MaxTextSize = 30
+UITextSizeConstraint_24.MinTextSize = 15
+
+History.Name = "History"
+History.Parent = UI
+History.Active = true
+History.AnchorPoint = Vector2.new(0.5, 0.5)
+History.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+History.BackgroundTransparency = 0.500
+History.BorderColor3 = Color3.fromRGB(0, 0, 0)
+History.BorderSizePixel = 0
+History.Position = UDim2.new(0.49999997, 0, 0.264357537, 0)
+History.Size = UDim2.new(0.99999994, 0, 0.155153632, 0)
+History.ZIndex = 2
+History.BottomImage = "rbxassetid://5168609593"
+History.CanvasSize = UDim2.new(0, 0, 0.200000003, 0)
+History.MidImage = "rbxassetid://5168609593"
+History.ScrollBarThickness = 6
+History.TopImage = "rbxassetid://5168609593"
+
+UIListLayout.Parent = History
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.Padding = UDim.new(0, 11)
+
+UIPadding.Parent = History
+UIPadding.PaddingBottom = UDim.new(0, 20)
+UIPadding.PaddingTop = UDim.new(0, 15)
+
+clear.Name = "clear"
+clear.Parent = UI
+clear.AnchorPoint = Vector2.new(0.5, 0.5)
+clear.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+clear.BackgroundTransparency = 0.500
+clear.BorderColor3 = Color3.fromRGB(0, 0, 0)
+clear.BorderSizePixel = 0
+clear.Position = UDim2.new(0.86139524, 0, 0.144491732, 0)
+clear.Size = UDim2.new(0.238636553, 0, 0.0393258929, 0)
+clear.ZIndex = 2
+clear.FontFace = Font.new("rbxasset://fonts/families/Roboto.json", Enum.FontWeight.Regular, Enum.FontStyle.Italic)
+clear.Text = "clear"
+clear.TextColor3 = Color3.fromRGB(255, 255, 255)
+clear.TextScaled = true
+clear.TextSize = 14.000
+clear.TextWrapped = true
+
+UICorner_26.Parent = clear
+
+UITextSizeConstraint_25.Parent = clear
+UITextSizeConstraint_25.MaxTextSize = 13
+
+Calculator_2.Name = "Calculator"
+Calculator_2.Parent = UI
+Calculator_2.AnchorPoint = Vector2.new(0.5, 0.5)
+Calculator_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Calculator_2.BackgroundTransparency = 1.000
+Calculator_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Calculator_2.BorderSizePixel = 0
+Calculator_2.Position = UDim2.new(0.243653506, 0, 0.0461308621, 0)
+Calculator_2.Size = UDim2.new(0.392732561, 0, 0.0530274548, 0)
+Calculator_2.ZIndex = 2
+Calculator_2.Font = Enum.Font.Roboto
+Calculator_2.Text = "Calculator"
+Calculator_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Calculator_2.TextScaled = true
+Calculator_2.TextSize = 14.000
+Calculator_2.TextWrapped = true
+Calculator_2.TextXAlignment = Enum.TextXAlignment.Left
+
+UITextSizeConstraint_26.Parent = Calculator_2
 UITextSizeConstraint_26.MaxTextSize = 30
 UITextSizeConstraint_26.MinTextSize = 15
 
 Display.Name = "Display"
-Display.Parent = Calculator
+Display.Parent = UI
 Display.AnchorPoint = Vector2.new(0.5, 0.5)
 Display.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Display.BackgroundTransparency = 1.000
 Display.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Display.BorderSizePixel = 0
+Display.ClipsDescendants = true
 Display.Position = UDim2.new(0.3008959, 0, 0.145999908, 0)
 Display.Size = UDim2.new(0.507217407, 0, 0.0815614685, 0)
 Display.ZIndex = 2
@@ -793,30 +815,71 @@ UITextSizeConstraint_27.Parent = Display
 UITextSizeConstraint_27.MaxTextSize = 30
 UITextSizeConstraint_27.MinTextSize = 15
 
-Calculator_2.Name = "Calculator"
-Calculator_2.Parent = Calculator
-Calculator_2.AnchorPoint = Vector2.new(0.5, 0.5)
-Calculator_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Calculator_2.BackgroundTransparency = 1.000
-Calculator_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Calculator_2.BorderSizePixel = 0
-Calculator_2.Position = UDim2.new(0.243653506, 0, 0.0461308621, 0)
-Calculator_2.Size = UDim2.new(0.392732561, 0, 0.0530274548, 0)
-Calculator_2.ZIndex = 2
-Calculator_2.FontFace = Font.new("rbxasset://fonts/families/Roboto.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-Calculator_2.Text = "Calculator"
-Calculator_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-Calculator_2.TextScaled = true
-Calculator_2.TextSize = 14.000
-Calculator_2.TextWrapped = true
-Calculator_2.TextXAlignment = Enum.TextXAlignment.Left
+Function.Name = "Function"
+Function.Parent = UI
+Function.AnchorPoint = Vector2.new(0.5, 0.5)
+Function.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Function.BackgroundTransparency = 1.000
+Function.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Function.BorderSizePixel = 0
+Function.Position = UDim2.new(0.624439895, 0, 0.131732896, 0)
+Function.Size = UDim2.new(0.0741662085, 0, 0.0530274548, 0)
+Function.ZIndex = 2
+Function.FontFace = Font.new("rbxasset://fonts/families/Roboto.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+Function.Text = ""
+Function.TextColor3 = Color3.fromRGB(255, 255, 255)
+Function.TextScaled = true
+Function.TextSize = 14.000
+Function.TextTransparency = 0.240
+Function.TextWrapped = true
 
-UITextSizeConstraint_28.Parent = Calculator_2
+UICorner_27.Parent = Function
+
+UITextSizeConstraint_28.Parent = Function
 UITextSizeConstraint_28.MaxTextSize = 30
 UITextSizeConstraint_28.MinTextSize = 15
 
+confirm.Name = "confirm"
+confirm.Parent = UI
+confirm.AnchorPoint = Vector2.new(0.5, 0.5)
+confirm.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+confirm.BackgroundTransparency = 0.500
+confirm.BorderColor3 = Color3.fromRGB(0, 0, 0)
+confirm.BorderSizePixel = 0
+confirm.Position = UDim2.new(0.86139524, 0, 0.0838569552, 0)
+confirm.Size = UDim2.new(0.238636553, 0, 0.0393258929, 0)
+confirm.Visible = false
+confirm.ZIndex = 2
+confirm.FontFace = Font.new("rbxasset://fonts/families/Roboto.json", Enum.FontWeight.Regular, Enum.FontStyle.Italic)
+confirm.Text = "Confirm"
+confirm.TextColor3 = Color3.fromRGB(255, 255, 255)
+confirm.TextScaled = true
+confirm.TextSize = 14.000
+confirm.TextWrapped = true
+
+UICorner_28.Parent = confirm
+
+UITextSizeConstraint_29.Parent = confirm
+UITextSizeConstraint_29.MaxTextSize = 13
+
+TextLabel.Parent = confirm
+TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.5, 0, -0.75, 0)
+TextLabel.Size = UDim2.new(1, 0, 1, 0)
+TextLabel.FontFace = Font.new("rbxasset://fonts/families/Roboto.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+TextLabel.Text = "Are you sure?"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
+
+Examples.Name = "Examples"
+Examples.Parent = Calculator
+
 historyUIExample.Name = "historyUIExample"
-historyUIExample.Parent = Calculator
+historyUIExample.Parent = Examples
 historyUIExample.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 historyUIExample.BackgroundTransparency = 1.000
 historyUIExample.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -824,77 +887,18 @@ historyUIExample.BorderSizePixel = 0
 historyUIExample.Size = UDim2.new(0.970000029, 0, 0.184, 30)
 historyUIExample.Visible = false
 
-Problem.Name = "Problem"
-Problem.Parent = historyUIExample
-Problem.AnchorPoint = Vector2.new(0.5, 0.5)
-Problem.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Problem.BackgroundTransparency = 1.000
-Problem.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Problem.BorderSizePixel = 0
-Problem.Position = UDim2.new(0.253370732, 0, 0.172924682, 0)
-Problem.Size = UDim2.new(0.447010219, 0, 0.362977684, 0)
-Problem.ZIndex = 2
-Problem.FontFace = Font.new("rbxasset://fonts/families/Roboto.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-Problem.Text = "4+4"
-Problem.TextColor3 = Color3.fromRGB(255, 255, 255)
-Problem.TextScaled = true
-Problem.TextSize = 14.000
-Problem.TextWrapped = true
-Problem.TextXAlignment = Enum.TextXAlignment.Left
-
-UICorner_28.Parent = Problem
-
-UITextSizeConstraint_29.Parent = Problem
-UITextSizeConstraint_29.MaxTextSize = 18
-
-Answer.Name = "Answer"
-Answer.Parent = historyUIExample
-Answer.AnchorPoint = Vector2.new(0.5, 0.5)
-Answer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Answer.BackgroundTransparency = 1.000
-Answer.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Answer.BorderSizePixel = 0
-Answer.Position = UDim2.new(0.253370702, 0, 0.655467272, 0)
-Answer.Size = UDim2.new(0.447010219, 0, 0.602107763, 0)
-Answer.ZIndex = 2
-Answer.FontFace = Font.new("rbxasset://fonts/families/Roboto.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-Answer.Text = "8"
-Answer.TextColor3 = Color3.fromRGB(255, 255, 255)
-Answer.TextScaled = true
-Answer.TextSize = 14.000
-Answer.TextWrapped = true
-Answer.TextXAlignment = Enum.TextXAlignment.Left
-
-UICorner_29.Parent = Answer
-
-UITextSizeConstraint_30.Parent = Answer
-UITextSizeConstraint_30.MaxTextSize = 25
-
-Date.Name = "Date"
-Date.Parent = historyUIExample
-Date.AnchorPoint = Vector2.new(0.5, 0.5)
-Date.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Date.BackgroundTransparency = 1.000
-Date.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Date.BorderSizePixel = 0
-Date.Position = UDim2.new(0.733709335, 0, 0.172924682, 0)
-Date.Size = UDim2.new(0.447010219, 0, 0.362977684, 0)
-Date.ZIndex = 2
-Date.FontFace = Font.new("rbxasset://fonts/families/Roboto.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-Date.Text = "April 20 4:20pm"
-Date.TextColor3 = Color3.fromRGB(255, 255, 255)
-Date.TextScaled = true
-Date.TextSize = 14.000
-Date.TextWrapped = true
-Date.TextXAlignment = Enum.TextXAlignment.Right
-
-UICorner_30.Parent = Date
-
-UITextSizeConstraint_31.Parent = Date
-UITextSizeConstraint_31.MaxTextSize = 18
+pos.Name = "pos"
+pos.Parent = historyUIExample
+pos.AnchorPoint = Vector2.new(0.5, 0.5)
+pos.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+pos.BackgroundTransparency = 1.000
+pos.BorderColor3 = Color3.fromRGB(0, 0, 0)
+pos.BorderSizePixel = 0
+pos.Position = UDim2.new(0.5, 0, 0.5, 0)
+pos.Size = UDim2.new(1, 0, 1, 0)
 
 Underline.Name = "Underline"
-Underline.Parent = historyUIExample
+Underline.Parent = pos
 Underline.AnchorPoint = Vector2.new(0.5, 0.5)
 Underline.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Underline.BackgroundTransparency = 1.000
@@ -903,4 +907,100 @@ Underline.BorderSizePixel = 0
 Underline.Position = UDim2.new(0.5, 0, 1, 0)
 Underline.Size = UDim2.new(0.949999988, 0, 0, 0)
 
-UICorner_31.Parent = Underline
+UICorner_29.Parent = Underline
+
+Answer.Name = "Answer"
+Answer.Parent = pos
+Answer.AnchorPoint = Vector2.new(0.5, 0.5)
+Answer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Answer.BackgroundTransparency = 1.000
+Answer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Answer.BorderSizePixel = 0
+Answer.Position = UDim2.new(0.253370702, 0, 0.655467272, 0)
+Answer.Size = UDim2.new(0.447010219, 0, 0.602107763, 0)
+Answer.ZIndex = 2
+Answer.Font = Enum.Font.Roboto
+Answer.Text = "8"
+Answer.TextColor3 = Color3.fromRGB(255, 255, 255)
+Answer.TextScaled = true
+Answer.TextSize = 14.000
+Answer.TextWrapped = true
+Answer.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_30.Parent = Answer
+
+UITextSizeConstraint_30.Parent = Answer
+UITextSizeConstraint_30.MaxTextSize = 25
+
+Date.Name = "Date"
+Date.Parent = pos
+Date.AnchorPoint = Vector2.new(0.5, 0.5)
+Date.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Date.BackgroundTransparency = 1.000
+Date.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Date.BorderSizePixel = 0
+Date.Position = UDim2.new(0.733709335, 0, 0.172924682, 0)
+Date.Size = UDim2.new(0.447010219, 0, 0.362977684, 0)
+Date.ZIndex = 2
+Date.Font = Enum.Font.Roboto
+Date.Text = "August 3rd 2:23pm"
+Date.TextColor3 = Color3.fromRGB(255, 255, 255)
+Date.TextScaled = true
+Date.TextSize = 14.000
+Date.TextWrapped = true
+Date.TextXAlignment = Enum.TextXAlignment.Right
+
+UICorner_31.Parent = Date
+
+UITextSizeConstraint_31.Parent = Date
+UITextSizeConstraint_31.MaxTextSize = 18
+
+Problem.Name = "Problem"
+Problem.Parent = pos
+Problem.AnchorPoint = Vector2.new(0.5, 0.5)
+Problem.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Problem.BackgroundTransparency = 1.000
+Problem.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Problem.BorderSizePixel = 0
+Problem.Position = UDim2.new(0.253370732, 0, 0.172924682, 0)
+Problem.Size = UDim2.new(0.447010219, 0, 0.362977684, 0)
+Problem.ZIndex = 2
+Problem.Font = Enum.Font.Roboto
+Problem.Text = "4+4"
+Problem.TextColor3 = Color3.fromRGB(255, 255, 255)
+Problem.TextScaled = true
+Problem.TextSize = 14.000
+Problem.TextWrapped = true
+Problem.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_32.Parent = Problem
+
+UITextSizeConstraint_32.Parent = Problem
+UITextSizeConstraint_32.MaxTextSize = 18
+
+TweeningUIElements.Name = "TweeningUIElements"
+TweeningUIElements.Parent = Calculator
+
+Clear.Name = "Clear"
+Clear.Parent = TweeningUIElements
+Clear.AnchorPoint = Vector2.new(0.5, 0.5)
+Clear.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Clear.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Clear.BorderSizePixel = 0
+Clear.Size = UDim2.new(0, 1, 0, 1)
+Clear.Visible = false
+Clear.ZIndex = 3
+
+UICorner_33.CornerRadius = UDim.new(1, 0)
+UICorner_33.Parent = Clear
+
+ClearEntry.Name = "ClearEntry"
+ClearEntry.Parent = TweeningUIElements
+ClearEntry.AnchorPoint = Vector2.new(0.5, 0.5)
+ClearEntry.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ClearEntry.BackgroundTransparency = 1.000
+ClearEntry.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ClearEntry.BorderSizePixel = 0
+ClearEntry.Position = UDim2.new(1.5, 0, 0.145999998, 0)
+ClearEntry.Size = UDim2.new(0.99999994, 0, 0.0819999948, 0)
+ClearEntry.ZIndex = 3
