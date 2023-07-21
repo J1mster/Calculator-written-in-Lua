@@ -128,7 +128,7 @@ local ClearEntry = Instance.new("Frame")
 
 --Properties:
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.Parent = game.StarterGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Calculator.Name = "Calculator"
